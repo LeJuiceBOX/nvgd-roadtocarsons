@@ -1,4 +1,4 @@
-# nvgd-tothemoon
+# nvgd-roadtocarsons
 VR Game made using Unity with OpenXR.
 
 ## ToDo:
