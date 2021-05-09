@@ -16,16 +16,20 @@ public class vroom : MonoBehaviour {
     public float throttle;
     [Range(-1f,1f)]
     public float steer;
+    [Range(0f,1f)]
+    public float brake;
     [Header("Config:")]
     public int maxSteer = 35;
     public int motorForce = 50;
+    public int brakeTorque = 65;
+    public Vector3 centerOfMass = new Vector3(0,-1,0);
     public DriveType driveType = DriveType.Front;
 
     [Header("References:")]
-    public WheelCollider leftFrontW, leftBackW;
-    public WheelCollider rightFrontW, rightBackW;
-    public Transform leftFrontT, leftBackT;
-    public Transform rightFrontT, rightBackT;
+    public WheelCollider wcFL, wcBL;
+    public WheelCollider wcFR, wcBR;
+    public Transform wtFL, wtBL;
+    public Transform wtFR, wtBR;
 
     [Header("Input:")]
     public InputAction kbControls;
@@ -33,30 +37,36 @@ public class vroom : MonoBehaviour {
     private Rigidbody rb;
     private float steeringAngle;
 
-
     private void Steer() {
         steeringAngle = maxSteer*steer;
-        rightFrontW.steerAngle = steeringAngle;
-        leftFrontW.steerAngle = steeringAngle;
+        wcFR.steerAngle = steeringAngle;
+        wcFL.steerAngle = steeringAngle;
     }
 
     private void Accelerate() {
         // if using All execute both, if otherwise only use the cooresponding block
         if (driveType == DriveType.All || driveType == DriveType.Front ) {
-            leftFrontW.motorTorque = throttle*motorForce;
-            rightFrontW.motorTorque = throttle*motorForce;
+            wcFL.motorTorque = throttle*motorForce;
+            wcFR.motorTorque = throttle*motorForce;
         }
         if (driveType == DriveType.All || driveType == DriveType.Back) {
-            leftBackW.motorTorque = throttle*motorForce;
-            rightBackW.motorTorque = throttle*motorForce;
+            wcBL.motorTorque = throttle*motorForce;
+            wcBR.motorTorque = throttle*motorForce;
         }    
     }
 
+    private void Brake() {
+        float bt = 0;
+        if (brake > 0) { bt = brakeTorque; }
+        wcFR.brakeTorque = bt; wcFL.brakeTorque = bt;
+        wcBR.brakeTorque = bt; wcBL.brakeTorque = bt;
+    }
+
     private void UpdateWheelPose() {
-        SingleWheelPose(leftFrontW,leftFrontT);
-        SingleWheelPose(rightFrontW,rightFrontT);
-        SingleWheelPose(leftBackW,leftBackT);
-        SingleWheelPose(rightBackW,rightBackT);
+        SingleWheelPose(wcFL,wtFL);
+        SingleWheelPose(wcFR,wtFR);
+        SingleWheelPose(wcBL,wtBL);
+        SingleWheelPose(wcBR,wtBR);
     }
 
     private void SingleWheelPose(WheelCollider coll, Transform trans) {
@@ -79,11 +89,18 @@ public class vroom : MonoBehaviour {
         Vector2 axis = kbControls.ReadValue<Vector2>();
         throttle = axis.y;
         steer = Mathf.Clamp(axis.x,-1,1);
+        rb.centerOfMass = centerOfMass;
     }
 
     void FixedUpdate() {
         Steer();
         Accelerate();
+        Brake();
         UpdateWheelPose();
+    }
+
+    private void OnDrawGizmos() {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position + transform.rotation * centerOfMass, 0.075f);
     }
 }
