@@ -33,6 +33,7 @@ public class vroom : MonoBehaviour {
 
     [Header("Input:")]
     public InputAction kbControls;
+    public InputAction vrControls;
 
     private Rigidbody rb;
     private float steeringAngle;
