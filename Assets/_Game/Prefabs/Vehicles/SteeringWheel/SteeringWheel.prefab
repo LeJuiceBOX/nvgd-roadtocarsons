@@ -125,8 +125,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.71
-  m_fontSizeBase: 0.71
+  m_fontSize: 0.51
+  m_fontSizeBase: 0.51
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -306,7 +306,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6812959535940750538}
-  m_LocalRotation: {x: -0.49999854, y: -0.5, z: 0.5, w: 0.5000015}
+  m_LocalRotation: {x: -0.5, y: -0.5, z: 0.5, w: 0.5}
   m_LocalPosition: {x: 0.00000035066697, y: 0.95, z: 0.385}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -332,20 +332,19 @@ MonoBehaviour:
   steerAngle: 0
   targetSteerAngle: 0
   active: 1
-  segments: 48
+  inUse: 0
+  showHotspots: 0
+  segments: 100
   alphaMod: 6
   steerValueAcc: 3
-  maxSteerAngle: 80
-  wheelRadius: 0.67
-  trigSize: {x: 0.015, y: 0.15, z: 0.015}
+  maxSteerAngle: 90
+  wheelRadius: 0.75
+  trigSize: {x: 0.015, y: 0.25, z: 0.015}
   carController: {fileID: 0}
   model: {fileID: 6812959535674926637}
   hotspot: {fileID: 1054818854565418395, guid: aab310c400e1b214ba79ef40bc6c3abc, type: 3}
   hotspotFolder: {fileID: 6812959535429236377}
   text: {fileID: 6812959535095597812}
-  controllers:
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!65 &6812959535940750543
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -357,8 +356,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.37, y: 0.07, z: 0.33946967}
-  m_Center: {x: 0, y: 0, z: -0.0007573664}
+  m_Size: {x: 0.34563994, y: 0.07, z: 0.33946967}
+  m_Center: {x: -0.007416725, y: 0, z: -0.0007573664}
 --- !u!1 &6812959535984225026
 GameObject:
   m_ObjectHideFlags: 0
@@ -370,7 +369,6 @@ GameObject:
   - component: {fileID: 6812959535984225029}
   - component: {fileID: 6812959535984225030}
   - component: {fileID: 6812959535984225031}
-  - component: {fileID: 6812959535984225028}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -441,16 +439,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6812959535984225028
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6812959535984225026}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
