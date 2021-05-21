@@ -11,6 +11,7 @@ public class SteeringWheel : MonoBehaviour {
     public float targetSteerAngle;
     [Header("Config:")]
     public bool active = true;
+    public bool inUse = false;
     public bool showHotspots = false;
     public int segments = 30;
     public float alphaMod = 4; // bigger val -> faster lerp
@@ -41,6 +42,15 @@ public class SteeringWheel : MonoBehaviour {
         steerValue = -Mathf.Round(steerAngle/maxSteerAngle*pow)/pow;
         text.text = steerValue.ToString();
         carController.steer = steerValue;
+        if (!inUse) { targetSteerAngle = 0; }
+    }
+
+    private void OnTriggerEnter(Collider other) {
+        inUse = true;
+    }
+
+    private void OnTriggerExit(Collider other) {
+        inUse = false;
     }
 
     public void HotspotTouched(Transform hs) {

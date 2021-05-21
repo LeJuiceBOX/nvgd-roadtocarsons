@@ -690,7 +690,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6812959535940750540, guid: 02d503a1eaf61f14bbe759ac21f8396e, type: 3}
       propertyPath: showHotspots
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6812959535940750540, guid: 02d503a1eaf61f14bbe759ac21f8396e, type: 3}
       propertyPath: carController
@@ -755,6 +755,18 @@ PrefabInstance:
     - target: {fileID: 6812959535940750541, guid: 02d503a1eaf61f14bbe759ac21f8396e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 6812959535940750543, guid: 02d503a1eaf61f14bbe759ac21f8396e, type: 3}
+      propertyPath: m_Size.x
+      value: 0.34563994
+      objectReference: {fileID: 0}
+    - target: {fileID: 6812959535940750543, guid: 02d503a1eaf61f14bbe759ac21f8396e, type: 3}
+      propertyPath: m_Center.x
+      value: -0.007416725
+      objectReference: {fileID: 0}
+    - target: {fileID: 6812959535940750543, guid: 02d503a1eaf61f14bbe759ac21f8396e, type: 3}
+      propertyPath: m_Center.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6812959535984225026, guid: 02d503a1eaf61f14bbe759ac21f8396e, type: 3}
       propertyPath: m_Layer
@@ -863,25 +875,6 @@ Transform:
   m_Father: {fileID: 2105375566}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -15.992, y: 0, z: 0}
---- !u!1 &350925099 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3141311237536383697, guid: 1ef4e8db95890014f8f5003322a18729, type: 3}
-  m_PrefabInstance: {fileID: 2728724699418155726}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &350925100
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 350925099}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b310796d78f858948bbde5c6e2242b9f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  car: {fileID: 4793445134267817920}
-  offset: {x: 0.5, y: -0.44, z: 0.13}
 --- !u!4 &350925107 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3141311237536383703, guid: 1ef4e8db95890014f8f5003322a18729, type: 3}
@@ -4118,31 +4111,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3141311237536383703, guid: 1ef4e8db95890014f8f5003322a18729, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.5
+      value: -0.24
       objectReference: {fileID: 0}
     - target: {fileID: 3141311237536383703, guid: 1ef4e8db95890014f8f5003322a18729, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.44
+      value: -0.399
       objectReference: {fileID: 0}
     - target: {fileID: 3141311237536383703, guid: 1ef4e8db95890014f8f5003322a18729, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.13
+      value: -1.75
       objectReference: {fileID: 0}
     - target: {fileID: 3141311237536383703, guid: 1ef4e8db95890014f8f5003322a18729, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.74999565
       objectReference: {fileID: 0}
     - target: {fileID: 3141311237536383703, guid: 1ef4e8db95890014f8f5003322a18729, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3141311237536383703, guid: 1ef4e8db95890014f8f5003322a18729, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0.66144276
       objectReference: {fileID: 0}
     - target: {fileID: 3141311237536383703, guid: 1ef4e8db95890014f8f5003322a18729, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3141311237536383703, guid: 1ef4e8db95890014f8f5003322a18729, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -4150,7 +4143,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3141311237536383703, guid: 1ef4e8db95890014f8f5003322a18729, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 82.82
       objectReference: {fileID: 0}
     - target: {fileID: 3141311237536383703, guid: 1ef4e8db95890014f8f5003322a18729, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -5056,7 +5049,7 @@ MonoBehaviour:
   motorForce: 200
   brakeTorque: 440
   centerOfMass: {x: 0, y: -0.56, z: -0.59}
-  driveType: 2
+  driveType: 1
   wcFL: {fileID: 4793445132583252606}
   wcBL: {fileID: 4793445133265484753}
   wcFR: {fileID: 4793445133455589835}
