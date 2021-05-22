@@ -226,6 +226,14 @@ MonoBehaviour:
       m_Groups: 
       m_Action: Kb Controls
       m_Flags: 8
+  vrControls:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: cc58b495-81fd-434f-9f45-c53f15120680
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
 --- !u!1 &4793445133572561758
 GameObject:
   m_ObjectHideFlags: 0

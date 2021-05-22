@@ -26,10 +26,14 @@ public class vroom : MonoBehaviour {
     public DriveType driveType = DriveType.Front;
 
     [Header("References:")]
-    public WheelCollider wcFL, wcBL;
-    public WheelCollider wcFR, wcBR;
-    public Transform wtFL, wtBL;
-    public Transform wtFR, wtBR;
+    public WheelCollider wcFL;
+    public WheelCollider wcBL;
+    public WheelCollider wcFR;
+    public WheelCollider wcBR;
+    public Transform wtFL;
+    public Transform wtBL;
+    public Transform wtFR;
+    public Transform wtBR;
 
     [Header("Input:")]
     public InputAction kbControls;
