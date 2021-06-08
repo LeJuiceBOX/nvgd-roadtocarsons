@@ -6,11 +6,12 @@ using UnityEngine.XR.OpenXR;
 using UnityEngine.XR.Interaction.Toolkit;
 
 public class XRNoSnapGrabInteractable : XRGrabInteractable {
-
+    public bool active = true;
     private Vector3 interactorPos = Vector3.zero;
     private Quaternion interactorRot = Quaternion.identity;
 
     protected override void OnSelectEntering(XRBaseInteractor args) {
+        if (!active) { return; } 
         base.OnSelectEntering(args);
         StoreInteractor(args);
         MatchAttachmentPoints(args);

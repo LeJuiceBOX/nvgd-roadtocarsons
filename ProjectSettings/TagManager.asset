@@ -8,6 +8,7 @@ TagManager:
   - part_Extra
   - XR Controller
   - Nail
+  - CarPart
   layers:
   - Default
   - TransparentFX

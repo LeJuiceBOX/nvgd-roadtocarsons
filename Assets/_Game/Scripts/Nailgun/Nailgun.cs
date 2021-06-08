@@ -1,3 +1,4 @@
+using System.Net.NetworkInformation;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
@@ -7,7 +8,10 @@ public class Nailgun : MonoBehaviour {
     public AudioClip failAudio;
     public Transform head;
     public NailService nailService; 
-    public LayerMask nailableLayers;
+    public LayerMask validLayers;
+    public Transform chassis;
+    public Transform carparts;
+    public string carPartTag;
 
     private AudioSource audioSource;
 
@@ -16,15 +20,14 @@ public class Nailgun : MonoBehaviour {
     }
 
     public void Shoot() {
-        RaycastHit[] hits = Physics.RaycastAll(head.position,head.up,dist,nailableLayers);
+        RaycastHit[] hits = Physics.RaycastAll(head.position,head.up,dist,validLayers);
         if (hits.Length < 2 || hits.Length > 3 ) { FailSound(); return; } 
         RaycastHit p0 = hits[0]; RaycastHit p1 = hits[1];
-       /* // check for situations like nailing prop0 -> prop0_sibling -> prop1
-        if (hits.Length == 3 && hits[1].transform.IsChildOf(hits[0].transform.parent) && !hits[2].transform.IsChildOf(hits[0].transform.parent))
-            p0 = hits[0]; p1 = hits[2];*/
-        // handle nail generation
-        Vector3 pos = head.position+(head.up*dist)/2; 
-        nailService.GenerateNail(pos,head.transform.rotation,p0.transform.gameObject,p1.transform.gameObject);
+        Vector3 pos = head.position+(head.up*dist)/2;
+        RaycastHit part = p0;
+        RaycastHit surface = p1;
+        if (p1.transform.CompareTag(carPartTag)) { part = p1; surface = p0; }
+        nailService.GenerateNail(pos,head.transform.rotation,part.transform,surface.transform);
         SuccessSound();
     }
 
@@ -32,21 +35,6 @@ public class Nailgun : MonoBehaviour {
     public void FailSound() { audioSource.clip = failAudio; audioSource.Play(); }
 
     /*
-
-    public void NailProp(GameObject prop) {
-        if (prop == null) return;
-        Rigidbody r; XRGrabInteractable grabScript;
-        if (prop.TryGetComponent<Rigidbody>(out r)) 
-            r.constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
-            r.isKinematic = true;
-        if (prop.TryGetComponent<XRGrabInteractable>(out grabScript))
-            grabScript.interactionLayerMask = 0;
-        prop.layer = nailedLayer;
-        foreach(Transform child in prop.GetComponentsInChildren<Transform>()) {
-            child.gameObject.layer = nailedLayer;
-        }
-    }
-
     public void Shoot() {
         RaycastHit[] hits = Physics.RaycastAll(head.position,head.up,dist,nailableLayers);
         if (hits.Length != 2) { return; } 
@@ -58,7 +46,5 @@ public class Nailgun : MonoBehaviour {
         n.obj1 = hits[1].transform.gameObject;
         audioSource.Play();
     }
-
     */
-
 }

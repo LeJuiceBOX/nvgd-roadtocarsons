@@ -5,6 +5,10 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class NailService : MonoBehaviour {
     public GameObject nailPrefab;
+    public Transform partContainer;
+    public Transform nailContainer;
+    public Transform chassis;
+    public string carPartTag;
     public List<Nail> nails = new List<Nail>();
     public List<GameObject> nailedProps = new List<GameObject>();
 
@@ -18,13 +22,12 @@ public class NailService : MonoBehaviour {
         HandleUnNailedProps();
     }
 
-    public void GenerateNail(Vector3 nailPos, Quaternion nailRot, GameObject prop0, GameObject prop1) {
-        if (prop0 == null || prop1 == null) { Debug.LogWarning("Tried nailing null."); return; }
-        GameObject nailObject = Instantiate(nailPrefab, nailPos, nailRot);
-        TogglePropFreeze(prop0,true); TogglePropFreeze(prop1,true);
-        nails.Add(new Nail(nailObject,prop0,prop1));
-        if (!nailedProps.Contains(prop0)) { nailedProps.Add(prop0); }
-        if (!nailedProps.Contains(prop1)) { nailedProps.Add(prop1); }
+    public void GenerateNail(Vector3 nailPos, Quaternion nailRot, Transform part, Transform surface) {
+        if (part == null) { Debug.LogWarning("Tried nailing null."); return; }
+        GameObject nailObject = Instantiate(nailPrefab, nailPos, nailRot, nailContainer);
+        TogglePropFreeze(part.gameObject,true);
+        nails.Add(new Nail(nailObject,part.gameObject,surface.gameObject));
+        part.transform.SetParent(partContainer);
     }
 
     private void TogglePropFreeze(GameObject prop, bool state) {
@@ -32,11 +35,13 @@ public class NailService : MonoBehaviour {
         bool gotRb = prop.TryGetComponent<Rigidbody>(out rb);
         bool gotInteractable = prop.TryGetComponent<XRNoSnapGrabInteractable>(out interactable);
         if (state) {
-            if (gotRb) { rb.isKinematic = true; } // freeze the prop
-            if (gotInteractable) {  } // make prop non interactable
+            // FREEZE
+            if (gotRb) { rb.detectCollisions = false; rb.isKinematic = true; } // freeze the prop
+            if (gotInteractable) { interactable.active = false; } // make prop non interactable
         } else {
-            if (gotRb) { rb.isKinematic = false; } // freeze the prop
-            if (gotInteractable) { } // make prop non interactable
+            // UNFREEZE
+            if (gotRb) { rb.isKinematic = false; rb.detectCollisions = true; } // unfreeze the prop
+            if (gotInteractable) { interactable.active = true; } // make prop interactable
         }
     }
 
