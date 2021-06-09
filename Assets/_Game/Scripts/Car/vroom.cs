@@ -26,6 +26,7 @@ public class vroom : MonoBehaviour {
     public DriveType driveType = DriveType.Front;
 
     [Header("References:")]
+    public Transform partContainer;
     public WheelCollider wcFL;
     public WheelCollider wcBL;
     public WheelCollider wcFR;
@@ -95,6 +96,8 @@ public class vroom : MonoBehaviour {
         throttle = axis.y;
         steer = Mathf.Clamp(axis.x,-1,1);
         rb.centerOfMass = centerOfMass;
+        partContainer.position = transform.position;
+        partContainer.rotation = transform.rotation;
     }
 
     void FixedUpdate() {

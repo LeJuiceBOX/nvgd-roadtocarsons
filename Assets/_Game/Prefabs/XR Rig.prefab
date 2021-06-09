@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3141311236472851742}
   - component: {fileID: 2728724699989763785}
   - component: {fileID: 2728724699989763784}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: LeftHand Controller
   m_TagString: XR Controller
   m_Icon: {fileID: 0}
@@ -252,7 +252,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3141311237268907360}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: ModelTransform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -654,7 +654,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3141311237721434526}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: ModelTransform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -687,7 +687,7 @@ GameObject:
   - component: {fileID: 3141311238011391975}
   - component: {fileID: 3141311238011391968}
   - component: {fileID: 2728724699771941411}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: RightHand Controller
   m_TagString: XR Controller
   m_Icon: {fileID: 0}

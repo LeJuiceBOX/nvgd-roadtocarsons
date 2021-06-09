@@ -15,10 +15,17 @@ public class SeatHandler : MonoBehaviour
 
     private bool occuChanged;
 
+    private void Start() {
+        Enter();
+    }
+
+
+
     public void Enter() {
         occupied = true;
-        rig.SetParent(car);
-        rig.position = transform.position + rigCamera.position;
+        rig.position = transform.position+offset;
+        rig.position += rigCamera.localPosition;
+        rig.SetParent(transform);
     }
 
     public void Exit() {
