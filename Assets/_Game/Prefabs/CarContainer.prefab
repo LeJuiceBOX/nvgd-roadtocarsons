@@ -1530,7 +1530,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 96861594707106122}
-  - {fileID: 3141311237689206771}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1551,6 +1550,7 @@ MonoBehaviour:
   brake: 0
   maxSteer: 30
   motorForce: 1500
+  thrusterForce: 80
   brakeTorque: 440
   centerOfMass: {x: 0, y: -0.44, z: 0}
   driveType: 2
@@ -1714,73 +1714,3 @@ Transform:
   m_Father: {fileID: 96861594707106122}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &958719268
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 6447955020567074078}
-    m_Modifications:
-    - target: {fileID: 2728724699989763784, guid: 1ef4e8db95890014f8f5003322a18729, type: 3}
-      propertyPath: m_InteractionManager
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3141311237536383697, guid: 1ef4e8db95890014f8f5003322a18729, type: 3}
-      propertyPath: m_Name
-      value: XR Rig
-      objectReference: {fileID: 0}
-    - target: {fileID: 3141311237536383703, guid: 1ef4e8db95890014f8f5003322a18729, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3141311237536383703, guid: 1ef4e8db95890014f8f5003322a18729, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3141311237536383703, guid: 1ef4e8db95890014f8f5003322a18729, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.41000366
-      objectReference: {fileID: 0}
-    - target: {fileID: 3141311237536383703, guid: 1ef4e8db95890014f8f5003322a18729, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.878006
-      objectReference: {fileID: 0}
-    - target: {fileID: 3141311237536383703, guid: 1ef4e8db95890014f8f5003322a18729, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3141311237536383703, guid: 1ef4e8db95890014f8f5003322a18729, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3141311237536383703, guid: 1ef4e8db95890014f8f5003322a18729, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3141311237536383703, guid: 1ef4e8db95890014f8f5003322a18729, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3141311237536383703, guid: 1ef4e8db95890014f8f5003322a18729, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3141311237536383703, guid: 1ef4e8db95890014f8f5003322a18729, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3141311237536383703, guid: 1ef4e8db95890014f8f5003322a18729, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3141311238011391968, guid: 1ef4e8db95890014f8f5003322a18729, type: 3}
-      propertyPath: m_InteractionManager
-      value: 
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 1ef4e8db95890014f8f5003322a18729, type: 3}
---- !u!4 &3141311237689206771 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3141311237536383703, guid: 1ef4e8db95890014f8f5003322a18729, type: 3}
-  m_PrefabInstance: {fileID: 958719268}
-  m_PrefabAsset: {fileID: 0}
